@@ -6,4 +6,11 @@ class PortScan:
         return
     
     def scan(self):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM,)
+        s.settimeout(10)
+        result = s.connect_ex(self.ip, self.port)
+        if result == 0:
+            print("Port is open")
+        else:
+            print("Port is closed")
         return
